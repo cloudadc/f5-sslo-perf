@@ -1,0 +1,107 @@
+{
+  "template": {
+    "TOPOLOGY": {
+      "name": "TOPOLOGY_GENERATOR_NAME",
+      "pool": "/Common/pool_server",
+      "type": "topology_l3_inbound",
+      "pools": {},
+      "version": "8.0",
+      "ipFamily": "ipv4",
+      "ruleType": "Inbound",
+      "l7Profile": "/Common/http",
+      "partition": "Common",
+      "ruleLabel": "Inbound",
+      "snatPools": {},
+      "iRulesList": [],
+      "serviceDef": {
+        "source": "0.0.0.0%0/0",
+        "protocol": "tcp",
+        "description": "",
+        "destination": {
+          "mask": "",
+          "port": 80,
+          "prefix": 0,
+          "address": "TOPOLOGY_GENERATOR_VS_IP%0/32"
+        }
+      },
+      "sslSetting": "",
+      "strictness": true,
+      "tlsEnabled": true,
+      "dnsResolver": "/Common/ssloGS_global.app/ssloGS-net-resolver",
+      "l7Protocols": [],
+      "tcpSettings": {
+        "clientTcpProfile": "/Common/f5-tcp-wan",
+        "serverTcpProfile": "/Common/f5-tcp-lan"
+      },
+      "udpSettings": {
+        "clientUdpProfile": "",
+        "serverUdpProfile": ""
+      },
+      "userCreated": false,
+      "accessProfile": "/Common/sslo_TOPOLOGY_GENERATOR_NAME.app/sslo_TOPOLOGY_GENERATOR_NAME_accessProfile",
+      "egressNetwork": {
+        "clientSnat": "AutoMap",
+        "gatewayOptions": "useDefault"
+      },
+      "l7ProfileType": "http",
+      "loggingConfig": {
+        "ftp": "err",
+        "imap": "err",
+        "pop3": "err",
+        "smtps": "err",
+        "logPublisher": "none",
+        "statsToRecord": "0.0",
+        "sslOrchestrator": "err",
+        "perRequestPolicy": "err"
+      },
+      "proxySettings": {
+        "proxyType": "",
+        "forwardProxy": {
+          "explicitProxy": {
+            "ipv4Port": 3128,
+            "ipv6Port": 3128,
+            "ipv4Address": "",
+            "ipv6Address": ""
+          },
+          "transparentProxy": {
+            "passNonTcpNonUdpTraffic": true,
+            "tcpTrafficPassThroughType": true
+          }
+        },
+        "reverseProxy": {
+          "ipv4Port": 0,
+          "ipv6Port": 0,
+          "ipv4Address": "",
+          "ipv6Address": ""
+        }
+      },
+      "fastL4Settings": {
+        "all": ""
+      },
+      "ingressNetwork": {
+        "vlans": [
+          {
+            "name": "/Common/vlan_2000",
+            "value": "/Common/vlan_2000"
+          }
+        ]
+      },
+      "securityPolicy": "ssloP_CMBC_Policy_1",
+      "deployedNetwork": "",
+      "existingBlockId": "",
+      "previousVersion": "8.0",
+      "sslSettingReference": {
+        "name": ""
+      },
+      "securityPolicyReference": {
+        "name": "ssloP_CMBC_Policy_1"
+      }
+    }
+  },
+  "targetList": [
+    {
+      "name": "sslo1.test.com",
+      "type": "DEVICE"
+    }
+  ]
+}

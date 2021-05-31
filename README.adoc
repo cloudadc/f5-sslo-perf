@@ -1,0 +1,29 @@
+= F5 SSLO Performance Benchmarks
+
+A Performance Benchmarks for F5 SSLO.
+
+Reference Links:
+
+* SSLO - https://www.f5.com/products/security/ssl-orchestrator
+* SSLO 101 - https://clouddocs.f5.com/training/community/sslviz/html/class1/class1.html
+* SSLO 201 - https://clouddocs.f5.com/training/community/sslviz/html/class2/class2.html
+
+== How to increase Restjavad Heap Size
+
+https://support.f5.com/csp/article/K13996055
+
+== Build & Run 
+
+[source, bash]
+.*Build*
+----
+cd generator/ && mvn clean install
+----
+
+[source, bash]
+.*Run*
+----
+java -jar target/cis-as3-cm-generator-0.0.1.jar
+----
+
+~                                      

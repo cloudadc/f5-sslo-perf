@@ -1,0 +1,1 @@
+{"name":"YEWU_GENERATOR_POOL","monitor": "http", "members":[ {"name":"10.0.224.10:80"} ] }

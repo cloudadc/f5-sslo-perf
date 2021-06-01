@@ -1,8 +1,8 @@
 {
   "template": {
     "TOPOLOGY": {
-      "name": "TOPOLOGY_GENERATOR_NAME",
-      "pool": "/Common/pool_server",
+      "name": "sslo_TOPOLOGY_GENERATOR_NAME",
+      "pool": "/Common/TOPOLOGY_GENERATOR_YEWU_POOL",
       "type": "topology_l3_inbound",
       "pools": {},
       "version": "8.0",
@@ -100,7 +100,7 @@
   },
   "targetList": [
     {
-      "name": "sslo1.test.com",
+      "name": "sslo2.test.com",
       "type": "DEVICE"
     }
   ]

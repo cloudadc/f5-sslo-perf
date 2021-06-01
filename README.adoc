@@ -12,7 +12,7 @@ Reference Links:
 
 https://support.f5.com/csp/article/K13996055
 
-== Build & Run 
+== Build 
 
 [source, bash]
 .*Build*
@@ -20,10 +20,13 @@ https://support.f5.com/csp/article/K13996055
 cd generator/ && mvn clean install
 ----
 
+This will generate `target/cis-as3-cm-generator-0.0.1.jar`.
+
+== Count SSLO Objects
+
 [source, bash]
-.*Run*
 ----
-java -jar target/cis-as3-cm-generator-0.0.1.jar
+tmsh -q -c 'cd /; list recursive one-line' | wc -l
 ----
 
 ~                                      

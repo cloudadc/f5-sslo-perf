@@ -1,12 +1,25 @@
 {
    "topologies":[
       {
-         "name":"CMBC_BAR",
-         "vlan":"10.1.10.15/24"
+         "name":"CMBC_ONE",
+         "vlan":"10.1.10.0/24"
       },
       {
-         "name":"CMBC_FOO",
+         "name":"CMBC_TWO",
          "vlan":"10.1.20.0/24"
+      },
+      {
+         "name":"CMBC_THREE",
+         "vlan":"10.1.30.0/24"
+      },
+      {
+         "name":"CMBC_FOUR",
+         "vlan":"10.1.40.0/24"
+      },
+      {
+         "name":"CMBC_FIVE",
+         "vlan":"10.1.50.0/24"
       }
-   ]
+   ],
+  "interval": 5
 }

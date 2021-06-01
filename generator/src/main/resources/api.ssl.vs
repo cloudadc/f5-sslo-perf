@@ -1,0 +1,1 @@
+{"name": "SSL_GENERATOR_VS_NAME", "destination": "SSL_GENERATOR_VS_IP:443", "mask": "255.255.255.255", "pool": "SSL_GENERATOR_VS_POOL", "persist": [ {"name": "source_addr"} ] }

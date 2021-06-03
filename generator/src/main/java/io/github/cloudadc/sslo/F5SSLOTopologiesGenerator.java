@@ -140,6 +140,13 @@ public class F5SSLOTopologiesGenerator implements CommandLineRunner {
 				String bash = load("apiPost.sh");
 				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_NAME", name);
 				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_INTERVAL", String.valueOf(obj.getInterval()));
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_TOKEN_REFRSH_TIMES", String.valueOf(obj.getTokenRefreshTimes()));
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_SSLO_HOST", obj.getSsloHost());
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_BIGIQ_HOST", obj.getBiqHost());
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_SSLO_USER", obj.getSsloLoginUser());
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_SSLO_PASSWORD", obj.getSsloLoginPassword());
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_BIGIQ_USER", obj.getBiqLoginUser());
+				bash = bash.replaceAll("TOPOLOGY_GENERATOR_BASH_BIGIQ_PASSWORD", obj.getBiqLoginPassword());
 				Files.write(Paths.get("topology", name, "apiPost.sh"), bash.getBytes(), StandardOpenOption.CREATE_NEW);
 			} catch (IOException e) {
 				throw new RuntimeException(e);

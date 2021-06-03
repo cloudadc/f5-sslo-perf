@@ -21,5 +21,12 @@
          "vlan":"10.1.50.0/24"
       }
    ],
-  "interval": 5
+  "ssloHost": "192.168.1.246",
+  "ssloLoginUser": "admin",
+  "ssloLoginPassword": "holyzone123",
+  "biqHost": "192.168.1.124",
+  "biqLoginUser": "admin",
+  "biqLoginPassword": "holyzone@123", 
+  "interval": 30,
+  "tokenRefreshTimes": 5 
 }

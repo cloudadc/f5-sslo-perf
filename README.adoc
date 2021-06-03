@@ -1,6 +1,8 @@
 = F5 SSLO Performance Benchmarks
 
-A Performance Benchmarks for F5 SSLO.
+A Performance Benchmarks Tools for F5 SSLO.
+
+A Performance Benchmarks Tools will generate SSLO Topology creation template and api call bash scripts, the bash will call SSLO iControl Rest API and BIQ SSLO Unified API to create Topology and VS .
 
 Reference Links:
 
@@ -21,6 +23,116 @@ cd generator/ && mvn clean install
 ----
 
 This will generate `target/cis-as3-cm-generator-0.0.1.jar`.
+
+== Run
+
+[source, json]
+.*1. Prepare the pre config file apiPost.json*
+----
+{
+  "topologies": [
+    {
+      "name": "CMBC_ONE",
+      "vlan": "10.1.10.0/24"
+    },
+    {
+      "name": "CMBC_TWO",
+      "vlan": "10.1.20.0/24"
+    },
+    {
+      "name": "CMBC_THREE",
+      "vlan": "10.1.30.0/24"
+    },
+    {
+      "name": "CMBC_FOUR",
+      "vlan": "10.1.40.0/24"
+    },
+    {
+      "name": "CMBC_FIVE",
+      "vlan": "10.1.50.0/24"
+    }
+  ],
+  "ssloHost": "192.168.1.246",
+  "ssloLoginUser": "admin",
+  "ssloLoginPassword": "holyzone123",
+  "biqHost": "192.168.1.124",
+  "biqLoginUser": "admin",
+  "biqLoginPassword": "holyzone@123",
+  "interval": 30,
+  "tokenRefreshTimes": 5
+}
+----
+
+|===
+|Attributes |instruction
+
+|topologies.name
+|The Prefix of a group of topologies, usually can be the name of a VLAN
+
+|topologies.vlan
+|The vlan for Topology VS, current only support /24 lan, which means there will be 254 Topologies will created
+
+|ssloHost
+|The hostname or mgmt IP of SSLO
+
+|ssloLoginUser
+|The mgmt user of SSLO
+
+|ssloLoginPassword
+|The mgmt password of SSLO
+
+|biqHost
+|The hostname or mgmt IP of BIQ
+
+|biqLoginUser
+|The mgmt user of BIQ
+
+|biqLoginPassword
+|The mgmt password of BIQ
+
+|interval
+|The interval for each API POST, usually API Post finish need wait around 30 seconds to wait BIQ to finish deploy Topology to SSLO  
+
+|tokenRefreshTimes
+|The API POST aginst BIQ need a AccessToken, the Token's expire time is 300 seconds, the principle for set this value is make sure tokenRefreshTimes * (interval + 10) < 300
+|===
+
+The `apiPost.json` should put on app home, or passed cia args.
+
+[source, bash]
+.*2. Run to generate template and bash scripts*
+----
+java -jar target/topologies-generator.jar apiPost.json
+----
+
+Thie will generate several folder under `topology`:
+
+[source, bash]
+----
+$ ls topology/
+CMBC_FIVE	CMBC_FOUR	CMBC_ONE	CMBC_THREE	CMBC_TWO
+----
+
+On each folder, there will generate `1014` files:
+
+[source, bash]
+----
+$ ls -l topology/CMBC_ONE/ | wc -l
+    1014
+----
+
+* CMBC_ONE_* - Topology template files
+* SSL_VS_CMBC_ONE_* - SSL VS creation REST POST Body
+* SSL_POOL_CMBC_ONE_* - SSL Pool creation REST POST Body
+* YEWU_POOL_CMBC_ONE_* - Yewu Pool creation REST POST Body
+* apiPost.sh - API invocation bash
+
+[source, bash]
+.*3. Run to create Topology & VS*
+----
+chmod a+x apiPost.sh 
+./apiPost.sh
+----
 
 == Count SSLO Objects
 

@@ -86,7 +86,7 @@
           }
         ]
       },
-      "securityPolicy": "ssloP_CMBC_Policy_1",
+      "securityPolicy": "ssloP_TEST_Policy_1",
       "deployedNetwork": "",
       "existingBlockId": "",
       "previousVersion": "8.0",
@@ -94,7 +94,7 @@
         "name": ""
       },
       "securityPolicyReference": {
-        "name": "ssloP_CMBC_Policy_1"
+        "name": "ssloP_TEST_Policy_1"
       }
     }
   },

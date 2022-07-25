@@ -1,23 +1,23 @@
 {
    "topologies":[
       {
-         "name":"CMBC_ONE",
+         "name":"TEST_ONE",
          "vlan":"10.1.10.0/24"
       },
       {
-         "name":"CMBC_TWO",
+         "name":"TEST_TWO",
          "vlan":"10.1.20.0/24"
       },
       {
-         "name":"CMBC_THREE",
+         "name":"TEST_THREE",
          "vlan":"10.1.30.0/24"
       },
       {
-         "name":"CMBC_FOUR",
+         "name":"TEST_FOUR",
          "vlan":"10.1.40.0/24"
       },
       {
-         "name":"CMBC_FIVE",
+         "name":"TEST_FIVE",
          "vlan":"10.1.50.0/24"
       }
    ],
